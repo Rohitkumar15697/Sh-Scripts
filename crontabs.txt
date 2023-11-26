@@ -1,0 +1,32 @@
+Steps to work with crontabs in ubuntu:
+
+1. You need to make that cron service is installed or started in the system.
+	>>service --status-all
+	
+	This command will show you all the services in the system with [+] and [-] sign.
+	[+] service is enalbed
+	[-] service is disabled
+	
+	To start the cron service:
+	>> service cron start
+	or
+	>> service cron force-restart
+	
+2. Now to check the crontabs of currenct user:
+	>> crontab -l
+	
+3. Edit crontab script.
+	>> crontab -e
+	
+4. Basic crontab to work with.
+	Copy files from a folder to another folder.
+	
+	>>crontab -e
+	
+	write line in script:
+	* * * * * cp -r /path/source /path/destination
+	
+	eg: 
+	* * * * * cp -r /home/oem/ubuntu/dir2 /home/oem/ubuntu/dir
+	
+	Above line will run in every minute and copy everything from dir2 to dir folder
