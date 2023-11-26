@@ -30,3 +30,12 @@ Steps to work with crontabs in ubuntu:
 	* * * * * cp -r /home/oem/ubuntu/dir2 /home/oem/ubuntu/dir
 	
 	Above line will run in every minute and copy everything from dir2 to dir folder
+
+
+
+
+eg:
+copy file with current datetime in every minute and remove the 5 min old files.
+
+* * * * * cp -r  /home/oem/ubuntu/dir2/one.txt /home/oem/ubuntu/dir/cron-job-log-$(date +\%Y-\%m-\%d_\%H:\%M).txt
+* * * * * find . -maxdepth 1 -mmin -5 -type f -exec rm -f \;
